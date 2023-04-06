@@ -14,6 +14,10 @@ const Popularjobs = () => {
     num_pages: 1,
   });
 
+  const [selectedJob, setSelectedJob] = useState();
+
+  const handleCardPress = (item) => {};
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -29,7 +33,7 @@ const Popularjobs = () => {
         ) : error ? (
           <Text>Something went wrong</Text>
         ) : (
-          <FlatList data={data} renderItem={({ item }) => <PopularJobCard item={item} />} keyExtractor={(item) => item?.job_id} contentContainerStyle={{ columnGap: SIZES.medium }} horizontal />
+          <FlatList data={data} renderItem={({ item }) => <PopularJobCard item={item} selectedJob={selectedJob} handleCardPress={handleCardPress} />} keyExtractor={(item) => item?.job_id} contentContainerStyle={{ columnGap: SIZES.medium }} horizontal />
         )}
       </View>
     </View>
